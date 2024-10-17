@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Auth } from '../models/auth.model';
 
@@ -14,7 +15,10 @@ import { Auth } from '../models/auth.model';
 export class SignupComponent {
   signupForm: FormGroup;
 
-  constructor(private readonly authService: AuthService) {
+  constructor(
+    private readonly router: Router,
+    private readonly authService: AuthService
+  ) {
     this.signupForm = new FormGroup({
       email: new FormControl(null, Validators.email),
       firstName: new FormControl(null, Validators.required),
@@ -27,7 +31,7 @@ export class SignupComponent {
     this.authService.signUp(signupForm.value).subscribe({
       next: (auth: Auth) => console.log(auth),
       error: (httpErrorResponse: HttpErrorResponse) => console.log(httpErrorResponse.error.message),
-      complete: () => signupForm.reset()
+      complete: () => this.router.navigate([''])
     });
   }
 }
