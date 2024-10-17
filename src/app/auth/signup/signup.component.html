@@ -1,0 +1,15 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSignUp(signupForm)">
+    <label for="email">Email</label>
+    <input autocomplete="email" formControlName="email" id="email" type="email">
+
+    <label for="firstName">First Name</label>
+    <input autocomplete="given-name" formControlName="firstName" id="firstName" type="text">
+
+    <label for="lastName">Last Name</label>
+    <input autocomplete="family-name" formControlName="lastName" id="lastName" type="text">
+
+    <label for="password">Password</label>
+    <input autocomplete="new-password" formControlName="password" id="password" type="password">
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+</form>
