@@ -6,10 +6,7 @@ import { authInterceptor } from './auth/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(
-      withFetch(),
-      withInterceptors([authInterceptor])
-    ),
+    provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
   ]

@@ -1,0 +1,9 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogIn(loginForm)">
+    <label for="email">Email</label>
+    <input autocomplete="email" formControlName="email" id="email" type="email">
+
+    <label for="password">Password</label>
+    <input autocomplete="new-password" formControlName="password" id="password" type="password">
+
+    <button type="submit" [disabled]="loginForm.invalid">Log In</button>
+</form>
