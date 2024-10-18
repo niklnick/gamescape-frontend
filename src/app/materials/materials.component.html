@@ -1,0 +1,45 @@
+<form [formGroup]="addMaterialForm" (ngSubmit)="onAdd()">
+    <label for="title">Title</label>
+    <input formControlName="title" id="title" type="text">
+
+    <label for="description">Description</label>
+    <input formControlName="description" id="description" type="text">
+
+    <button type="submit" [disabled]="addMaterialForm.invalid">Add</button>
+</form>
+
+@if (materials$ | async; as materials) {
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (material of materials; track $index) {
+        <tr>
+            <td>{{ material.title }}</td>
+            <td>{{ material.description }}</td>
+            <td>
+                <button (click)="selectedMaterial = material">Update</button>
+                <button (click)="onDelete(material.id)">Delete</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+
+@if (selectedMaterial) {
+<form [formGroup]="updateMaterialForm" (ngSubmit)="onUpdate(selectedMaterial.id)">
+    <label for="title">Title</label>
+    <input formControlName="title" id="title" type="text">
+
+    <label for="description">Description</label>
+    <input formControlName="description" id="description" type="text">
+
+    <button type="submit" [disabled]="updateMaterialForm.invalid">Update</button>
+    <button (click)="selectedMaterial = null">Cancel</button>
+</form>
+}
