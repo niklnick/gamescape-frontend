@@ -15,4 +15,30 @@
     </div>
 </header>
 
-<router-outlet />
+<main>
+    <nav>
+        <p routerLink="">
+            <span class="material-symbols-rounded">home</span>
+            <span>Dashboard</span>
+        </p>
+
+        <p routerLink="">
+            <span class="material-symbols-rounded">casino</span>
+            <span>Games</span>
+        </p>
+
+        <p routerLink="">
+            <span class="material-symbols-rounded">category</span>
+            <span>Categories</span>
+        </p>
+
+        <p routerLink="/materials">
+            <span class="material-symbols-rounded">checklist</span>
+            <span>Materials</span>
+        </p>
+    </nav>
+
+    <article>
+        <router-outlet />
+    </article>
+</main>
