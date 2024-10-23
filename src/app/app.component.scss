@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    gap: .5em;
+    margin: .5em;
+
+    .flex-container {
+        align-items: center;
+        display: flex;
+        padding: .5em;
+        width: 100%;
+
+        &.search-container {
+
+            .search-bar {
+                align-items: center;
+                background: white;
+                border-radius: 2em;
+                display: flex;
+                gap: .5em;
+                padding: .5em .75em;
+                width: 25em;
+            }
+        }
+
+        &.account-container {
+            justify-content: end;
+        }
+    }
+}
