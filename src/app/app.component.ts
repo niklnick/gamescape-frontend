@@ -17,9 +17,9 @@ interface Tab {
 export class AppComponent {
   readonly tabs: Tab[] = [
     {
-      title: 'Home',
-      iconName: 'home',
-      route: ''
+      title: 'Games',
+      iconName: 'casino',
+      route: 'games'
     },
     {
       title: 'Materials',

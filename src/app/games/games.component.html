@@ -1,0 +1,41 @@
+@if (games$ | async; as games) {
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+
+            <th>Description</th>
+
+            <th>Categories</th>
+
+            <th>Materials</th>
+
+            <th>Variations</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (game of games; track $index) {
+        <tr>
+            <td>{{ game.title }}</td>
+
+            <td>{{ game.description }}</td>
+
+            <td>
+                @for (category of game.categories; track $index) {
+                <span>{{ category.title }}</span>
+                }
+            </td>
+
+            <td>
+                @for (material of game.materials; track $index) {
+                <span>{{ material.title }}</span>
+                }
+            </td>
+
+            <td>@if (game.variations.length > 0) { {{ game.variations.length }} }</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
