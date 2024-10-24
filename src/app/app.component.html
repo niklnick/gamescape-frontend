@@ -10,7 +10,7 @@
 
 <nav>
     @for (tab of tabs; track $index) {
-    <div class="tab-container" [routerLink]="tab.route">
+    <div class="tab-container" routerLinkActive="active" [routerLink]="tab.route">
         <span class="material-symbols-rounded">{{ tab.iconName }}</span>
         <span>{{ tab.title }}</span>
     </div>

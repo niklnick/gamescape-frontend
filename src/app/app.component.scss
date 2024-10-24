@@ -49,16 +49,16 @@ $spacing: 8px;
         .tab-container {
             align-items: center;
             border-radius: calc($spacing / 2);
-            cursor: pointer;
             display: flex;
             gap: $spacing;
             padding: $spacing;
 
-            &:hover {
+            &:hover:not(.active) {
                 background: hsl(0, 0%, 94%);
+                cursor: pointer;
             }
 
-            &:active {
+            &.active {
                 background: hsl(0, 0%, 88%);
             }
         }
